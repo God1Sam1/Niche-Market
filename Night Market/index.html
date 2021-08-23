@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niche Market</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=dosis">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+        /* font-family: 'Metal Mania', cursive; */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+        /* font-family: 'Metal Mania', cursive;  |  font-family: 'Noto Sans JP', sans-serif; */
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+        /*font-family: 'Baloo Da 2', cursive;" */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+        /* font-family: 'Roboto', sans-serif; */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        /* font-family: 'Dancing Script', cursive;" */
+        @import url('https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap');
+        /* font-family: 'Markazi Text', serif;   */
+        </style>
+    <style>
+  h2{
+  color: firebrick;
+  font-family: 'Noto Sans JP', sans-serif;  
+  font-weight: 450;
+  text-align: left;
+  }
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: outset;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+  cursor: grab;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  border:none;
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  min-height:550px;
+}
+
+img {
+  float: left;
+   margin-right:20px;
+}
+h2{
+  padding:20px; text-align:center
+}
+h3{
+  padding:20px;
+}
+
+
+</style>
+<script>
+  // Tab
+  function openLink(evt, pageName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(pageName).style.display = "block";
+  evt.currentTarget.className += " active";}
+
+</script>
+
+<style>
+/* .preloader-body{
+    background-image:url(loading.gif);
+    background-attachment:fixed;
+    background-position:center;
+    background-color:#000;
+    background-repeat: no-repeat;
+}
+#preloader .padd
+{
+    padding-top:140px;
+} */
+
+.preloader-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+.wavy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+  position: relative;
+  -webkit-box-reflect: below -12px linear-gradient(
+    transparent, rgba(0,0,0,0.2)) ;
+}
+.wavy span{
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-size: 2em;
+  text-transform: uppercase;
+  animation: animate 1s ease-in-out infinite;
+  animation-delay:calc(0.1s * var(--i)) ;
+}
+@keyframes animate {
+  0% 
+  {
+    transform:translateY(0px)
+  }
+  20% 
+  {
+    transform: translateY(-20px);
+  }
+  40%,100%
+  {
+    transform: translateY(0px);
+  }
+}
+</style>
+
+          <script>
+            if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+function ready() {
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+
+    var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function purchaseClicked() {
+    alert('Thank you for your purchase')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function addToCartClicked(event) {
+    var button = event.target
+    var shopItem = button.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    addItemToCart(title, price, imageSrc)
+    updateCartTotal()
+}
+
+function addItemToCart(title, price, imageSrc) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
+    var cartRowContents = `
+        <div class="cart-item cart-column">
+            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+            <span class="cart-item-title">${title}</span>
+        </div>
+        <span class="cart-price cart-column">${price}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        </div>`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function updateCartTotal() {
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('₹', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+    }
+    total = Math.round(total * 100) / 100
+    document.getElementsByClassName('cart-total-price')[0].innerText = '₹' + total
+}
+        </script>
+<script>
+function showPage() {
+document.getElementById("preloader").style.display = "none";
+document.getElementById("Wholepage").style.display = "block";
+$("body").removeClass("preloader-body");
+}
+setTimeout(showPage, 3000);
+</script>
+</head> 
+<body class="preloader-body">
+  
+
+
+  <div id="preloader">
+    <div class="wavy">
+      
+      <span style="--i:1">L</span>
+      <span style="--i:2">o</span>
+      <span style="--i:3">a</span>
+      <span style="--i:4">d</span>
+      <span style="--i:5">i</span>
+      <span style="--i:6">n</span>
+      <span style="--i:7">g</span>
+      <span style="--i:8">.</span>
+      <span style="--i:9">.</span>
+      <span style="--i:10">.</span>
+
+    </div>
+    </div>
+<!-- <div id="preloader">
+<div color="54faf2">
+<div class="padd">
+<h2>Initialization System</h2>
+<h3>Please wait...</h3> 
+</div>
+</div>
+</div> -->
+
+
+  
+<div id="Wholepage" style="display:none">
+<h2 style="font-family:cursive;font-size: 60px;color: cyan;" title="Night Market">Niche Market</h2>
+<div class="tab">
+  <button  class="tablinks active" onclick="openLink(event, 'Page1')">HOME</button>
+  <button  class="tablinks" onclick="openLink(event, 'Page2')">About</button>
+  <button  class="tablinks" onclick="openLink(event, 'Page3')">Curriculum and Pricing</button>
+  <button  class="tablinks" onclick="openLink(event, 'Page4')">Features</button>
+  <button  class="tablinks" onclick="openLink(event, 'Page5')">Contact us</button>
+  
+</div>
+
+<div id="Page1" class="tabcontent active" style="display: block;">
+    <div  id="MilkyWay" ><br><br>
+      <img style="margin-bottom: 50px;" height="150px" width="225px" src="hellodog-a7bd6b94430c1e66148d580209e377c5.gif" alt=""><br>
+      <div class="main">
+        <input id="input" name="box" placeholder="Type to search" type="text"> <button id="WHO">
+          <i class='fas fa-search'></i>   
+        </button>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      <!-- <img src="7.jpg" style=" float: left;margin-left:40px;" alt="" height="250px" width="400px"><br>
+      <p style="font-size: 20px; color: black;justify-content: center;">A Night Market is a grouping of temporary outdoor stalls operated by petty traders where
+        products are displayed for sale. The night market popularity steamed from the convenience they
+        provided for the local residents to do shopping for their household needs within their residential
+        areas. Thus, they provided an alternative shopping option. Additionally, the night markets, with
+        their friendly and relaxed atmosphere, allowed the customers to enjoy the diverse environment,
+        the wide choices of freshly cooked food and fresh vegetables at affordable prices. <br><br>If u wanna see more about Night Market check <span style="font-size: 22px;" > About </span> section</p>
+        <br><br><br>
+        <p style="font-size: 20px; color: black;justify-content: center;"> Pls sign In for buying products &#128073; <a href="sign in form/index.html"><button id="WHO">Sign In here</button></a></p> -->
+        <div class="card">
+          <div class="circle"></div>
+          <div class="content">
+              <h2>Niche Market</h2>
+              <p>A niche market is the subset of the market on which a specific product is focused. A niche market does not mean a small market, but it involves specific target audience with a specialized offering. check more about our product in about page</p>
+              <a  href="sign in form/index.html">Sign In</a>
+             
+          </div>
+              <img src="niche.jpg" width="500px" height="300px" alt="">
+          </div>
+      </div>
+</div>
+
+<div id="Page2" class="tabcontent" ><br><br><br>
+  <div id="MilkyWay" >
+    <div class="main">
+      <input id="input" name="box" placeholder="Type to search" type="text"> <button id="WHO">
+        <i class='fas fa-search'></i> 
+      </button>
+    </div><br><br><br>
+    <div class="about">
+      <img  height="200px"
+      width="300px" src="images/1.jpg" alt="">
+      <Div ><span style="font-size: 32px;">Indroduction</span>
+      <P style="font-size: 28px;">Our Product name is Adidas t-shirts. <br> The name Adidas (written “adidas” by the company) is an abbreviation <br> of the name of founder Adolf (“Adi”) Dassler. <br> The Dassler family began manufacturing shoes after World War I.</P>
+
+    </Div>
+    <br><br>
+      <div>
+        <Span style="font-size: 32px;">What kind of procut do we produce?</Span>
+        <p style="font-size: 28px;">Adidas is a multinational corporation, founded and headquartered in Herzogenaurach, Germany, which designs and manufactures footwear, apparel, and accessories. The Adidas group is made up of Reebok, TaylorMade, and Runtastic. The company also owns a share of the German football club Bayern Munich.</p>
+      </div>
+      <br>
+      <div>
+        <span style="font-size: 32px;">What is special about Adidas?</span>
+        <p style="font-size: 28px;">
+          While the brand is often associated with Hip Hop, it is also known for its innovations in the world of basketball as well. As a matter of fact, the Adidas Superstar was the first basketball shoe with a low top silhouette featuring an all leather upper portion.</p>
+      </div>
+      <br>
+      <div>
+        <span style="font-size: 32px;">What do the 3 stripes on Adidas mean?</span>
+        <p style="font-size: 28px;">
+          Even before Adidas purchased the trefoil logo from Karhu Sports, they added three bars to all of their products, and they referred to themselves as the “three stripe company.” These three stripes were meant to convey the diversity and international appeal of the company by symbolizing the three major landmasses where</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Page3" class="tabcontent "><br><br>
+    <div id="MilkyWay">   
+      <div class="main">
+        <input id="input" name="box" placeholder="Type to search" type="text"> <button id="WHO">
+          <i class='fas fa-search'></i>
+        </button> <br><br><br><br><br>
+      </div>
+      <div id="div">  
+        <section class="price-comparison">
+ 
+  <div class="price-column">
+    <div class="price-header">
+    <div class="price">
+      <div class="dollar-sign">$</div>
+      7
+      <div class="per-month">/mo</div>
+    </div>
+    <div class="plan-name">Basic</div>
+  </div>
+  <div class="divider"></div>
+  <div class="feature">
+    
+    Feature A
+  </div>
+  <div class="feature">
+    
+    Feature B
+  </div>
+  <div class="feature inactive">  
+    
+    Feature C
+  </div>
+  <div class="feature inactive">
+    
+    Feature D
+  </div>
+  <div class="feature inactive">
+    
+    Feature E
+  </div>
+  <div class="feature inactive">
+    
+    Feature F
+  </div>
+  <a href="Pay/1stPay.html"><button  style="box-shadow: none;" class="cta">Start Today</button></a>
+</div>
+</section>
+<section class="price-comparison">
+  <div class="price-column popular">
+  <div class="most-popular">Most Popular</div>
+  <div class="price-header">
+    <div class="price">
+      <div class="dollar-sign">$</div>
+      50
+      <div class="per-month">/mo</div>
+    </div>
+    <div class="plan-name">Professional</div>
+  </div>
+  <div class="divider"></div>
+  <div class="feature">
+    
+    Feature A
+  </div>
+  <div class="feature">
+    
+    Feature B
+  </div>
+  <div class="feature">
+    
+    Feature C
+  </div>
+  <div class="feature">
+    
+    Feature D
+  </div>
+  <div class="feature">
+    
+    Feature E
+  </div>
+  <div class="feature">
+    
+    Feature F
+  </div>
+  <a href="Pay/3rdPay.html"><button style="box-shadow: none;" class="cta">Start Today</button></a>
+</div>
+</section>
+<section class="price-comparison">
+  <div class="price-column">
+  <div class="price-header">
+    <div class="price">
+      <div class="dollar-sign">$</div>
+      25
+      <div class="per-month">/mo</div>
+    </div>
+    <div class="plan-name">Standard</div>
+  </div>
+  <div class="divider"></div>
+  <div class="feature">
+    
+    Feature A
+  </div>
+  <div class="feature">
+    
+    Feature B
+  </div>
+  <div class="feature">
+    
+    Feature C
+  </div>
+  <div class="feature">
+    
+    Feature D
+  </div>
+  <div class="feature inactive">
+   
+    Feature E
+  </div>
+  <div class="feature inactive">
+    
+    Feature F
+  </div>
+  <a href="Pay/2ndPay.html"><button style="box-shadow: none;" class="cta">Start Today</button></a>
+</div>
+</section><br><br><br><br>
+
+</div>
+</div>
+</div>
+
+<div id="Page4" class="tabcontent "><br><br>
+  <div id="MilkyWay">
+    <div class="main">
+      <input id="input" name="box" placeholder="Type to search" type="text"> <button id="WHO">
+        <i class='fas fa-search'></i> 
+      </button>
+    </div>
+    
+    <section class="container content-section">
+      <h2 class="section-header">T-Shirts</h2>
+      <div class="shop-items">
+          <div class="shop-item">
+              <span class="shop-item-title">Adidas Belgium</span>
+              <img class="shop-item-image" src="Images/as1.webp">
+              <div class="shop-item-details">
+                  <span class="shop-item-price">₹8204</span>
+                  <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+              </div>
+          </div>
+          <div class="shop-item">
+              <span class="shop-item-title">Real Madrid</span>
+              <img class="shop-item-image" src="Images/as2.webp">
+              <div class="shop-item-details">
+                  <span class="shop-item-price">₹2866</span>
+                  <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+              </div>
+          </div>
+          <div class="shop-item">
+              <span class="shop-item-title">Adidas Wave</span>
+              <img class="shop-item-image" src="Images/ad3.jpg">
+              <div class="shop-item-details">
+                  <span class="shop-item-price">₹1299</span>
+                  <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+              </div>
+          </div>
+          <div class="shop-item">
+              <span class="shop-item-title">Adidas Blue</span>
+              <img class="shop-item-image" src="Images/as4.jpg">
+              <div class="shop-item-details">
+                  <span class="shop-item-price">799</span>
+                  <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+              </div>
+          </div>
+          <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Adidas Arsenal</span>
+                <img class="shop-item-image" src="Images/ad5.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">₹6084</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Adidas Pre-Madrid</span>
+                <img style="margin-left: 90px;" class="shop-item-image" src="Images/ad6.webp">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">₹3588</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+        </div>      
+  </section>
+
+  <section class="container content-section">
+      <h2 class="section-header">CART</h2>
+      <div class="cart-row">
+          <span class="cart-item cart-header cart-column">ITEM</span>
+          <span class="cart-price cart-header cart-column">PRICE</span>
+          <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+      </div>  
+      <div class="cart-items">
+      </div>
+      <div class="cart-total">
+          <strong class="cart-total-title">Total</strong>
+          <span class="cart-total-price">₹0</span>
+      </div>
+      <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+  </section>
+  </div>
+</div>
+
+<div id="Page5" class="tabcontent ">
+  <div id="MilkyWay">
+    <div class="contact-section">
+      
+      <h1>Contact Us</h1> 
+      <div class="border"></div>
+      <form class="contact-form" method="post">
+        <input type="text" class="contact-form-text" placeholder="Your name">
+        <input type="email" class="contact-form-text" placeholder="Your email">
+        <input type="text" class="contact-form-text" placeholder="Your phone">
+        <textarea class="contact-form-text" placeholder="Your message"></textarea>
+        <input type="submit" class="contact-form-btn" value="Send">
+      </form> 
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+
+<a href="Get in touch/Get.html">
+<button class="floating-btn">
+Get in Touch
+  </button></a>
+</div>
+</div>
+</body>
+</html> 
+
